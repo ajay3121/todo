@@ -1,0 +1,37 @@
+<h2 style="font-size: 20px; margin-top: 20px; text-align:center">Tasks That Are Added</h2>
+<table style="border-collapse: collapse; width: 100%; margin-top: 10px;">
+
+  <!-- Table Header -->
+  <thead>
+    <tr>
+      <th style="background-color: #f2f2f2; border: 1px solid #ddd; text-align: left; padding: 10px;">Tasks</th>
+      <th style="background-color: #f2f2f2; border: 1px solid #ddd; text-align: left; padding: 10px;">Done</th>
+      <th style="background-color: #f2f2f2; border: 1px solid #ddd; text-align: left; padding: 10px;">Actions</th>
+    </tr>
+  </thead>
+
+  <!-- Table Body -->
+  <tbody>
+    <% @tasks.each do |m| %>
+      <tr>
+        <td style="border: 1px solid #ddd; text-align: left; padding: 10px;">
+          <p><%= m.task_name %></p>
+        </td>
+        <td style="border: 1px solid #ddd; text-align: left; padding: 10px;">
+          <p><%= m.completed %></p>
+        </td>
+        <td style="border: 1px solid #ddd; text-align: left; padding: 10px;">
+          <a href="<%= custom_delete_path(m) %>" style="text-decoration: none; color: red;" onclick="return confirm('Are you sure?')">Delete</a>
+          <a href="<%= edit_task_path(m) %>" style="text-decoration: none; margin-left: 10px;">Edit</a>
+          <a href="<%= task_path(m) %>" style="text-decoration: none; margin-left: 10px;">View</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="<%= new_task_path() %>" style="text-decoration: none; display: block; margin-top: 20px; font-size: 18px; text-align:center">Add a New Task</a>
+<a href="<%= root_path() %>" style="text-decoration: none; display: block; margin-top: 20px; font-size: 18px; text-align:center">Home</a>
+
+
+

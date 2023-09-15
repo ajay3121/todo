@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    table td {
+      padding: 10px;
+    }
+
+    table input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    table input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    table input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Here you can create a new task</h1>
+  <%= form_with scope: :tasks, url: tasks_path, local: true do |f| %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :task %>
+          <%= f.text_field :task_name %>
+        </td>
+        <td>
+          <%= f.label :completed %>
+          <%= f.text_field :completed %>
+        </td>
+        <td>
+          <%= f.submit %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  <a href="<%= tasks_path %>" style="text-decoration: none; color: #007bff; display: block; margin-top: 10px; padding: 10px;">View Tasks</a>
+</body>
+</html>

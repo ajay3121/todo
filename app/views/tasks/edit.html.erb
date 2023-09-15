@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    table td {
+      padding: 10px;
+    }
+
+    table input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+</style>
+</head>
+<body>
+  <h2>Edit an Existing Task</h2>
+  <%= form_with(model: @task, local: true) do |f| %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :task %>
+          <%= f.text_field :task_name %>
+        </td>
+        <td>
+          <%= f.label :completed %>
+          <%= f.text_field :completed %>
+        </td>
+      </tr>
+    </table>
+    <%= f.submit "Update changes", style: "background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;" %>
+
+  <% end %>
+  <a href="<%= tasks_path() %>" style="text-decoration: none; display: block; margin-top: 20px; font-size: 18px;">Back</a>
+</body>
+</html>

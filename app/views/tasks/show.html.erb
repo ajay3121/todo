@@ -1,0 +1,24 @@
+<h2 style="text-align:center;">you are viewing a task</h2>
+<table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #dddddd; padding: 10px;">Task</th>
+      <th style="border: 1px solid #dddddd; padding: 10px;">Done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #dddddd; padding: 10px;">
+        <%= @task.task_name %>
+      </td>
+      <td style="border: 1px solid #dddddd; padding: 10px;">
+        <%= @task.completed %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style = "text-align:center">
+<a href="<%= edit_task_path(@task) %>" style="text-decoration: none; color: #007bff; margin-top: 10px; display: inline; padding: 10px;">Edit</a>
+<a href="<%= tasks_path %>" style="text-decoration: none; color: #007bff; display: inline; margin-top: 10px; padding: 10px;">View Tasks</a>
+<a href="<%= custom_delete_path(@task) %>" style="text-decoration: none; color: red; margin-top: 10px; display: inline; padding: 10px;" onclick="return confirm('Are you sure?')">Delete</a>
+</p>
